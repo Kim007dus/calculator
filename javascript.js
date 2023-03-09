@@ -1,51 +1,32 @@
-const buttons = document.querySelectorAll("button")
-const display = document.querySelector("#display")
-
-let inputValue1 = ""
-let inputValue2 = ""
-let option = ""
-
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        if (option === "") {
-            inputValue1 += button.id
-            display.textContent = inputValue1
-        } else {
-            inputValue2 += button.id
-            display.textContent = inputValue2
-
-        }
-
-        if (option !== "result") {
-            option += button.className
-            display.textContent = ""
-            console.log(inputValue1)
-        }
-         else {
-            console.log (inputValue2)
-         }
-        
-        switch (option) {
-        case "add":
-        display.textContent = (parseInt(inputValue1) + parseInt(inputValue2))
-        console.log (parseInt(inputValue1) + parseInt(inputValue2))
-        break;
-        case "substract":
-        display.textContent = (parseInt(inputValue1) - parseInt(inputValue2))
-        console.log (parseInt(inputValue1) - parseInt(inputValue2))
-        break;
-        case "divide":
-        display.textContent = (parseInt(inputValue1) / parseInt(inputValue2))
-        console.log (parseInt(inputValue1) / parseInt(inputValue2))
-        break;
-        case "multiply":
-        display.textContent = (parseInt(inputValue1) * parseInt(inputValue2))
-        console.log (parseInt(inputValue1) * parseInt(inputValue2))
-        }
+const numberButtons = document.querySelectorAll("[data-number]")
+const operationButtons = document.querySelectorAll ("[data-operation]")
+const equalsButton = document.querySelector("[data-equals]")
+const allClearButton = document.querySelector("[data-all-clear]")
+const previousOperandTextElement = document.querySelector ("[data-previous-operand]")
+const currentOperandTextElement = document.querySelector ("[data-current-operand]")
 
 
+class Calculator {
+    constructor (previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement
+        this.currentOperandTextElement  = currentOperandTextElement
+        this.clear ()
+    }
+}
+
+allClearButton.addEventListener ("click", () => {
+console.log (allClearButton.innerHTML)
+})
+
+
+    numberButtons.forEach ((button) => {
+        button.addEventListener ("click", () => {
+        console.log (button.innerHTML)
+        })
     })
 
-
-
-});
+    operationButtons.forEach ((button) => {
+        button.addEventListener ("click", () => {
+            console.log (button.innerHTML)
+        })
+    })
